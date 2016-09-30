@@ -43,12 +43,16 @@ google.maps.event.addDomListener(window, 'resize', function() {
 function init() {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+    var location = new google.maps.LatLng(64.153770,-21.948741);
     var mapOptions = {
         // How zoomed in you want the map to start at (always required)
         zoom: 15,
-
+        center: location,
+        panControl: false,
+        mapTypeID: google.maps.MapTypeID.ROADMAP
+        }
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(64.153770,-21.948741), // Reykjavik
+         // Reykjavik
 
         // Disables the default Google Maps UI components
         disableDefaultUI: true,
@@ -175,11 +179,27 @@ function init() {
     map = new google.maps.Map(mapElement, mapOptions);
 
     // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-    var image = 'img/map-marker.png';
-    var myLatLng = new google.maps.LatLng(64.153770,-21.948741);
-    var beachMarker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        icon: image
+    var markerImage = 'marker.png';
+    var marker = new google.maps.Marker({
+           position: location,
+           map: map,
+           icon: markerImage
     });
-}
+    var contentString = '<div class="info-window">' +
+                '<h3>Info Window Content</h3>' +
+                '<div class="info-content">' +
+                '<p>Reykjavik Maritime Museum</p>' +
+                '</div>' +
+                '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 400
+        });
+
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initMap);
+});
