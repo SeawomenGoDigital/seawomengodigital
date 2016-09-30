@@ -33,12 +33,6 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 // Google Maps Scripts
-var map = null;
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', initMap);
-google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(new google.maps.LatLng(64.153770,-21.948741));
-});
 
 function initMap() {
 
