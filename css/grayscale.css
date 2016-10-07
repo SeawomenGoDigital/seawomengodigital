@@ -67,7 +67,7 @@ a:focus {
 }
 .navbar-custom .navbar-toggle:focus,
 .navbar-custom .navbar-toggle:active {
-  outline: none;
+  outline: blue;
 }
 .navbar-custom .navbar-brand {
   font-weight: 700;
