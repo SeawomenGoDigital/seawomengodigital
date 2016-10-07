@@ -72,6 +72,7 @@ a:focus {
 }
 .navbar-custom .navbar-brand {
   font-weight: 700;
+  color: orange;
 }
 .navbar-custom .navbar-brand:focus {
   outline: none;
