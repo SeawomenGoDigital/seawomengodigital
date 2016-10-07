@@ -53,6 +53,7 @@ a:focus {
 }
 .light {
   font-weight: 400;
+  word-spacing: 15px;
 }
 .navbar-custom {
   margin-bottom: 0;
